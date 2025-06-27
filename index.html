@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plushie Paradise</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Mobile Menu Toggle -->
+  <button class="menu-toggle" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div class="dashboard">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fas fa-paw"></i>
+        <h2>Plushie Paradise</h2>
+      </div>
+      <nav>
+        <ul>
+          <li class="active"><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+          <li><a href="#products"><i class="fas fa-tshirt"></i> Products</a></li>
+          <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Header -->
+<!-- Update your header section in index.html with this -->
+<header>
+  <div class="header-content">
+    <div class="header-decoration left">
+      <i class="fas fa-cloud"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-heart"></i>
+    </div>
+    
+    <div class="header-main">
+      <h1>Plushie Paradise</h1>
+      <p class="subtitle"> Crocheted with care, cuddled with warmth <i class="fas fa-paw"></i></p>
+      <div class="cta-buttons">
+        <button class="shop" onclick="scrollToSection('products')">Shop Now</button>
+        <button class="collection" onclick="toggleCart()">View Cart</button>
+      </div>
+    </div>
+    
+    <div class="header-decoration right">
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-cloud"></i>
+    </div>
+  </div>
+</header>
+ 
+      <!-- Products Section -->
+      <section class="section" id="products">
+        <div class="section-title">
+          <h2>Featured Products</h2>
+        </div>
+        <div class="product-grid" id="product-container">
+          <!-- Products will be added here dynamically -->
+        </div>
+      </section>
+      
+      <!-- About Section -->
+      <section class="section" id="about">
+        <h2>About Us</h2>
+        <p>We create handmade crochet plushies that designed to bring joy, comfort, and smiles to all ages. Made with love and high-quality materials, our crochet plushies are more than toys — they're cuddle buddies!</p>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="section" id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Okhema, Amphoreus</p>
+            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i class="fas fa-envelope"></i> contact@plushieparadise.com</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <form class="contact-form" action="https://formsubmit.co/texstotest6@gmail.com" method="POST">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="#contact"> <!-- Kembali ke section contact -->
+  <input type="hidden" name="_autoresponse" value="Terima kasih pesan Anda sudah kami terima">
+  
+  <div class="form-group">
+    <input type="text" name="name" placeholder="Your Name" required>
+  </div>
+  <div class="form-group">
+    <input type="email" name="email" placeholder="Your Email" required>
+  </div>
+  <div class="form-group">
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+  </div>
+  <button type="submit" class="submit-btn">Send Message</button>
+</form>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        &copy; 2025 Plushie Paradise | Follow us @PlushieParadise on Instagram
+      </footer>
+    </main>
+  </div>
+
+<!-- Cart -->
+<div id="cart">
+  <div class="cart-header">
+    <h4><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</h4>
+    <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+  </div>
+  <div id="cart-items">
+    <div class="empty-cart">Your cart is empty</div>
+  </div>
+  <div class="cart-bottom">
+    <div class="cart-subtotal">
+      <span>Subtotal:</span>
+      <span>$<span id="cart-subtotal">0.00</span></span>
+    </div>
+    <div class="cart-shipping">
+      <span>Shipping:</span>
+      <span>$<span id="shipping-cost">5.00</span></span>
+    </div>
+    <div class="cart-total">
+      <span>Total:</span>
+      <span>$<span id="cart-total">5.00</span></span>
+    </div>
+    <button id="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+    <div class="cart-actions">
+      <button class="continue-shopping" onclick="toggleCart()">
+        <i class="fas fa-arrow-left"></i> Continue Shopping
+      </button>
+    </div>
+    <div id="checkout-msg"></div>
+  </div>
+</div>
+
+<!-- Add this button to open cart anywhere in your HTML -->
+<button id="cart-toggle" onclick="toggleCart()">
+  <i class="fas fa-shopping-cart"></i>
+  <span id="cart-badge">0</span>
+</button>
+
+  <!-- Dark Mode Toggle -->
+  <button class="dark-toggle" onclick="toggleDarkMode()">
+    <span id="dark-mode-text">🌙 Dark Mode</span>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
